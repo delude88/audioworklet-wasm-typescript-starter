@@ -6,6 +6,7 @@
 #define AUDIOWORKLET_WASM_TYPESCRIPT_STARTER_CPP_MYCLASS_H_
 
 #include <string>
+#include <RubberBandStretcher.h>
 
 class MyClass {
  public:
@@ -14,6 +15,8 @@ class MyClass {
   int multiply(int a, int b);
 
   std::string sayHello(std::string name);
+
+  int getDefaultRubberbandEngineVersion();
 };
 
 #endif //AUDIOWORKLET_WASM_TYPESCRIPT_STARTER_CPP_MYCLASS_H_

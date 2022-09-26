@@ -15,18 +15,21 @@ add_library(mylib
         src/cpp/MyClass.h
         )
 
-add_executable(mywasm
-        src/wasm/main.cc
+target_include_directories(mylib
+        PUBLIC
+        lib/third-party/rubberband/rubberband
         )
 
-target_link_libraries(
-        mywasm
+add_executable(mywasm
+        src/wasm/MyClass-binding.cc
+        )
+
+target_link_libraries(mywasm
         PUBLIC
         mylib
 )
 
-set_target_properties(
-        mywasm
+set_target_properties(mywasm
         PROPERTIES
         LINK_FLAGS
         "-O2"

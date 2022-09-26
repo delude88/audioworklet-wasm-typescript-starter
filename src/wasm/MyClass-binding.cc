@@ -12,5 +12,8 @@ EMSCRIPTEN_BINDINGS(CLASS_MyClass) {
                   &MyClass::multiply)
 
         .function("sayHello",
-                  &MyClass::sayHello);
+                  &MyClass::sayHello)
+
+        .function("getDefaultRubberbandEngineVersion",
+                  &MyClass::getDefaultRubberbandEngineVersion);
 }
