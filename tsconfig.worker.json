@@ -3,19 +3,23 @@
     "target": "esnext",
     "module": "esnext",
     "lib": [
-      "esnext",
-      "dom"
+      "webworker",
+      "esnext"
     ],
     "strict": true,
     "alwaysStrict": true,
     "moduleResolution": "node",
-    "sourceMap": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "outDir": "dist",
-    "composite": true,
-    "declarationMap": true
+    "allowJs": true,
+    "baseUrl": ".",
+    "noEmit": true
   },
+  "include": [
+    "src/wasm/**/*.js",
+    "src/worker/**/*.ts",
+    "src/worklets/**/*.ts"
+  ],
   "exclude": [
     "node_modules"
   ]

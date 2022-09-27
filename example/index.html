@@ -1,0 +1,18 @@
+<html>
+
+<body>
+<button onclick="start()">Start</button>
+
+<script>
+    async function start() {
+        const audioContext = new AudioContext();
+        await audioContext.resume();
+        console.log("Started audio context");
+        await audioContext.audioWorklet.addModule("../public/my-audio-processor.js");
+        console.log("Registered my-audio-processor");
+        new AudioWorkletNode(".")
+    }
+
+</script>
+</body>
+</html>

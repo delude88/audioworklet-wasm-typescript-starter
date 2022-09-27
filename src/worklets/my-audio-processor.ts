@@ -1,3 +1,4 @@
+import * as Module from "../wasm/compiled.js"
 import {MyClass} from "./MyClass";
 
 class MyAudioProcessor extends AudioWorkletProcessor implements AudioWorkletProcessorImpl {

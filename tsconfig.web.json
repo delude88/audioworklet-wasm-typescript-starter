@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "strict": true,
+    "alwaysStrict": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "baseUrl": ".",
+    "sourceMap": true,
+    "outDir": "dist",
+    "rootDir": "src/web",
+    "isolatedModules": true,
+    "declaration": true,
+  },
+  "include": [
+    "src/web/**/*.ts",
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
