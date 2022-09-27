@@ -149,7 +149,7 @@ Under the hood webpack is just ignoring all tyescript related stuff and stripes 
 
 But we want also have the benefits of type-checking and validations that typescript provides us.
 
-For this create a _tsconfig.json_ with the following content:
+For this create a _tsconfig.json_ with the following content: 
 ````json
 {
   "compilerOptions": {
@@ -235,7 +235,7 @@ mkdir wasm/src
 To be able to compile C++ to _WebAssembly_ on different hosts, we are going to use _cmake_.
 
 But before creating the corresponding _CMakeLists.txt_, let's just discuss requirements first:
-To demonstrate how to use third-party libraries we are going to include an open-source library called _Rubber Band_, written by Chris Cannam and distributed under the GNU General Public License (GPL).
+To demonstrate how to use third-party libraries we are going to include an open-source library called _Rubber Band_, written by Chris Cannam and distributed under the GNU General Public License (GPL). 
 But you can use any other C/C++ library, as long as the codebase is portable. You can find more information about porting existing code or libraries [here](
 ).
 
@@ -260,6 +260,10 @@ Create a new file _wasm/CMakeLists.txt_ with the following content:
 ```CMake
 cmake_minimum_required(VERSION 3.21)
 project(wasm)
+
+if(NOT CMAKE_CXX_COMPILER MATCHES "/em\\+\\+(-[a-zA-Z0-9.])?$")
+    message(FATAL_ERROR "You need to use emscripten for this")
+endif ()
 
 set(CMAKE_CXX_STANDARD 17)
 set(OPTIMIZATION_FLAGS "-Wno-warn-absolute-paths -O3 -msimd128 -flto -std=c++17 -fexceptions")
@@ -301,10 +305,10 @@ target_link_libraries(main
 set_target_properties(main
         PROPERTIES
         LINK_FLAGS
-        "${OPTIMIZATION_FLAGS} -s ALLOW_MEMORY_GROWTH=1 -s WASM_ASYNC_COMPILATION=0 -s SINGLE_FILE=1 -s WASM=1"
+        "${OPTIMIZATION_FLAGS} -s ALLOW_MEMORY_GROWTH=1 -s WASM_ASYNC_COMPILATION=0 -s SINGLE_FILE=1 -s MODULARIZE=1 -s WASM=1"
         )
 ```
-Most of this file consists of basic CMake commands. If you are unfamiliar with Cmake, read [this basic introduction](https://cmake.org/cmake/help/latest/guide/tutorial/A%20Basic%20Starting%20Point.html#step-1-a-basic-starting-point).
+Most of this file consists of basic CMake commands. If you are unfamiliar with Cmake, read [this basic introduction](https://cmake.org/cmake/help/latest/guide/tutorial/A%20Basic%20Starting%20Point.html#step-1-a-basic-starting-point). 
 When targeting full-grown cross-platform projects using cmake, I highly recommend the [a-simple-triangle](https://marcelbraghetto.github.io/a-simple-triangle/2019/03/02/part-01/) tutorial.
 
 This _CMakeLists.txt_ defines three artifacts:

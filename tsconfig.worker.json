@@ -1,24 +1,22 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "esnext",
     "lib": [
-      "webworker",
+      "dom",
       "esnext"
     ],
-    "strict": true,
-    "alwaysStrict": true,
+    "module": "esnext",
     "moduleResolution": "node",
-    "skipLibCheck": true,
-    "esModuleInterop": true,
+    "baseUrl": "./",
     "allowJs": true,
-    "baseUrl": ".",
-    "noEmit": true
+    "noEmit": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
   },
   "include": [
-    "src/wasm/**/*.js",
-    "src/worker/**/*.ts",
-    "src/worklets/**/*.ts"
+    "src/**/*.ts"
   ],
   "exclude": [
     "node_modules"
