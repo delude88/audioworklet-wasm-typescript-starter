@@ -1,6 +1,6 @@
 {
   "name": "audioworklet-wasm-typescript-starter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Starter for developing C(++) based audio worklets using typescript",
   "main": "index.js",
   "repository": "https://github.com/delude88/audioworklet-wasm-typescript-starter.git",
@@ -13,40 +13,21 @@
     "os": false,
     "crypto": false
   },
-  "targets": {
-    "browsers": [
-      "last 2 versions",
-      "safari >= 7"
-    ],
-    "node": "6.10"
-  },
   "scripts": {
-    "type-check": "concurrently \"npm run type-check:web\" \"npm run type-check:worker\"",
-    "type-check:web": "tsc --project tsconfig.web.json --noEmit",
-    "type-check:web:watch": "npm run type-check:web -- --watch",
-    "type-check:worker": "tsc --project tsconfig.worker.json",
-    "type-check:worker:watch": "npm run type-check:worker -- --watch",
-    "dev": "concurrently \"npm run dev:web\" \"npm run dev:worker\"",
-    "dev:web": "concurrently \"webpack --config webpack.web.config.js --mode=development --watch\" \"npm run type-check:web:watch\"",
-    "dev:worker": "concurrently \"webpack --config webpack.worker.config.js --mode=development --watch\" \"npm run type-check:worker:watch\"",
-    "build": "npm run build:wasm && concurrently \"npm run build:types\" \"npm run build:web\" \"npm run build:worker\"",
-    "build:wasm": "./build.sh",
-    "build:types": "tsc --project tsconfig.web.json",
-    "build:web": "npm run build:types && webpack --config webpack.web.config.js --mode=production",
-    "build:worker": "npm run type-check:worker && webpack --config webpack.worker.config.js --mode=production"
+    "type-check": "tsc",
+    "dev": "webpack --mode=development --watch",
+    "build": "npm run build:wasm && npm run build:worklet",
+    "build:worklet": "npm run type-check && webpack --mode=production",
+    "build:wasm": "cd wasm && ./build.sh"
   },
   "devDependencies": {
     "@babel/core": "^7.19.1",
-    "@babel/plugin-proposal-class-properties": "^7.18.6",
-    "@babel/plugin-proposal-object-rest-spread": "^7.18.9",
     "@babel/preset-env": "^7.19.1",
     "@babel/preset-typescript": "^7.18.6",
     "@types/audioworklet": "^0.0.33",
     "@types/emscripten": "^1.39.6",
     "babel-loader": "^8.2.5",
-    "concurrently": "^7.4.0",
     "typescript": "^4.8.3",
-    "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0"
+    "webpack": "^5.74.0"
   }
 }

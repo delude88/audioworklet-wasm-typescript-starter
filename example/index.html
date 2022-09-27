@@ -1,23 +1,95 @@
-<html>
+<html lang="en">
 
 <body>
-<button onclick="start()">Start</button>
+<button id="init">Initialize audio context</button>
+<button id="start" disabled="disabled">Start oscillator</button>
+<button id="stop" disabled="disabled">Stop oscillator</button>
 
-<script src="../dist/index.js"></script>
+<p>
+    <label for="output">
+        Output by my MyAudioProcessor
+    </label>
+</p>
+<textarea readonly="readonly" id="output"></textarea>
+
+<p>
+    <label for="another-output">
+        Output by my AnotherAudioProcessor
+    </label>
+</p>
+<textarea readonly="readonly" id="another-output"></textarea>
+
 <script type="module">
-    import * as Bla from "../dist";
+    const initButton = document.getElementById("init")
+    const startButton = document.getElementById("start")
+    const stopButton = document.getElementById("stop")
+    let audioContext;
+    let running = false;
+    let myAudioNode;
+    //let anotherAudioNode;
+    let oscillator;
 
-    console.log("createMyAudioProcessorNode", createMyAudioProcessorNode)
-
-    async function start() {
-        const audioContext = new AudioContext();
+    const init = async () => {
+        console.log("Initializing audio context");
+        audioContext = new AudioContext();
         await audioContext.resume();
-        console.log("Started audio context");
-        console.log("Registered my-audio-processor");
-        await audioContext.audioWorklet.addModule("../public/worklets/my-audio-processor.js");
-        const node = new AudioWorkletNode(audioContext, "my-audio-processor");
-        console.log("Registered my-audio-processor as AudioWorkletNode");
+
+        const audioWorklet = audioContext.audioWorklet;
+
+        console.log("Adding modules");
+        await audioWorklet.addModule('../public/my-audio-processor.js');
+        //await audioWorklet.addModule('../public/another-audio-processor.js');
+
+        console.log("Initializing audio worklet nodes");
+        myAudioNode = new AudioWorkletNode(audioContext, "my-audio-processor");
+        //anotherAudioNode = new AudioWorkletNode(audioContext, "another-audio-processor");
+
+        console.log("Binding port messages to textarea elements");
+        const output = document.getElementById("output");
+        myAudioNode.onprocessorerror = (event) => {
+            console.error("Worklet reported error");
+            console.error(event)
+        }
+        myAudioNode.port.onmessage = (event) => {
+            if (output.value) {
+                output.value += "\n" + event.data
+            } else {
+                output.value = event.data
+            }
+        }
+
+        console.log("Connecting myAudioNode to destination");
+        myAudioNode.connect(audioContext.destination);
+
+        initButton.setAttribute("disabled", "disabled");
+        startButton.removeAttribute("disabled");
+        console.log("Successfully initialized");
     }
+
+    const start = () => {
+        console.log("Starting oscillator");
+        oscillator = audioContext.createOscillator();
+        oscillator.type = 'square';
+        oscillator.frequency.setValueAtTime(440, audioContext.currentTime);
+        oscillator.connect(myAudioNode);
+        oscillator.start();
+        startButton.setAttribute("disabled", "disabled");
+        stopButton.removeAttribute("disabled");
+    }
+
+    const stop = () => {
+        if (oscillator) {
+            console.log("Stopping oscillator");
+            oscillator.stop();
+            oscillator.disconnect(myAudioNode)
+            stopButton.setAttribute("disabled", "disabled");
+            startButton.removeAttribute("disabled");
+            oscillator = undefined;
+        }
+    }
+    initButton.addEventListener("click", init);
+    startButton.addEventListener("click", start);
+    stopButton.addEventListener("click", stop);
 </script>
 </body>
 </html>
