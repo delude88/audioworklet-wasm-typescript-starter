@@ -435,3 +435,4 @@ build
 dist
 lib/third-party
 .wasm
+public

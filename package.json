@@ -6,6 +6,7 @@
   "repository": "https://github.com/delude88/audioworklet-wasm-typescript-starter.git",
   "author": "delude88 <tobias.hegemann@googlemail.com>",
   "license": "MIT",
+  "private": true,
   "browser": {
     "fs": false,
     "path": false,

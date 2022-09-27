@@ -1,6 +1,9 @@
 class MyAudioProcessorNode extends AudioWorkletNode {
     constructor(audioContext: AudioContext, options?: AudioWorkletNodeOptions) {
         super(audioContext, "my-audio-processor", options);
+        this.port.onmessage = (event) => {
+            console.log("Got message from c++: ", event.data)
+        }
     }
 }
 

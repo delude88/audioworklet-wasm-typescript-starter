@@ -16,6 +16,9 @@ fetch_brew_dependency() {
 # Install required toolset
 fetch_brew_dependency "cmake"
 fetch_brew_dependency "emscripten"
+pushd lib || exit
+  bash setup.sh
+popd || exit
 
 # Make sure we have a 'build' folder.
 if [ ! -d ".wasm" ]; then

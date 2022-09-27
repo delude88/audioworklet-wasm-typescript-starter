@@ -4,14 +4,15 @@ class MyClass {
     constructor(module: EmscriptenModule) {
         // @ts-ignore
         this.instance = new module.MyClass();
+        console.log(this.instance)
     }
 
     multiply(a: number, b: number): number {
         return this.instance.multiply(a, b);
     }
 
-    sayHello(): string {
-        return this.instance._sayHello();
+    sayHello(name: string): string {
+        return this.instance.sayHello(name);
     }
 
     getDefaultRubberbandEngineVersion(): number {

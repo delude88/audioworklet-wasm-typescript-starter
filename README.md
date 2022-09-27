@@ -5,4 +5,3 @@ Starter for developing C(++) based audio worklets using typescript
 
 Goal was to create a boilerplate that respects all necessary workarounds for the common three big browser engines (WebKit, Gecko, Chromium).
 
-## Artifacts

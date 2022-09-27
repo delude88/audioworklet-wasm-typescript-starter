@@ -11,7 +11,9 @@ class MyAudioProcessor extends AudioWorkletProcessor implements AudioWorkletProc
         this.module = Module();
         this.myClass = new MyClass(this.module)
 
-        console.log(this.myClass.sayHello());
+        console.log(this.myClass.sayHello("Thomas"));
+
+        this.port.postMessage("Hello World");
     }
 
     process(inputs: Float32Array[][], outputs: Float32Array[][], parameters: Record<string, Float32Array>): boolean {
