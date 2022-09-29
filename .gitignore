@@ -1,47 +1,9 @@
-# Created by 
-https://www.toptal.com/developers/gitignore/api/node,intellij+all,visualstudiocode,c++,clion+all,phpstorm+all,yarn
-# Edit at 
-https://www.toptal.com/developers/gitignore?templates=node,intellij+all,visualstudiocode,c++,clion+all,phpstorm+all,yarn
+# Created by https://www.toptal.com/developers/gitignore/api/yarn,node,intellij+all,phpstorm+all,visualstudiocode,webstorm+all
+# Edit at https://www.toptal.com/developers/gitignore?templates=yarn,node,intellij+all,phpstorm+all,visualstudiocode,webstorm+all
 
-### C++ ###
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-
-### CLion+all ###
-# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, 
-CLion, Android Studio, WebStorm and Rider
-# Reference: 
-https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+### Intellij+all ###
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff
 .idea/**/workspace.xml
@@ -70,8 +32,7 @@ https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 .idea/**/libraries
 
 # Gradle and Maven with auto-import
-# When using Gradle or Maven with auto-import, you should exclude module 
-files,
+# When using Gradle or Maven with auto-import, you should exclude module files,
 # since they will be recreated, and may cause churn.  Uncomment if using
 # auto-import.
 # .idea/artifacts
@@ -119,7 +80,7 @@ fabric.properties
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 
-### CLion+all Patch ###
+### Intellij+all Patch ###
 # Ignore everything but code style settings and run configurations
 # that are supposed to be shared within teams.
 
@@ -127,64 +88,6 @@ fabric.properties
 
 !.idea/codeStyles
 !.idea/runConfigurations
-
-### Intellij+all ###
-# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, 
-CLion, Android Studio, WebStorm and Rider
-# Reference: 
-https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
-
-# User-specific stuff
-
-# AWS User-specific
-
-# Generated files
-
-# Sensitive or high-churn files
-
-# Gradle
-
-# Gradle and Maven with auto-import
-# When using Gradle or Maven with auto-import, you should exclude module 
-files,
-# since they will be recreated, and may cause churn.  Uncomment if using
-# auto-import.
-# .idea/artifacts
-# .idea/compiler.xml
-# .idea/jarRepositories.xml
-# .idea/modules.xml
-# .idea/*.iml
-# .idea/modules
-# *.iml
-# *.ipr
-
-# CMake
-
-# Mongo Explorer plugin
-
-# File-based project format
-
-# IntelliJ
-
-# mpeltonen/sbt-idea plugin
-
-# JIRA plugin
-
-# Cursive Clojure plugin
-
-# SonarLint plugin
-
-# Crashlytics plugin (for Android Studio and IntelliJ)
-
-# Editor-based Rest Client
-
-# Android studio 3.1+ serialized cache file
-
-### Intellij+all Patch ###
-# Ignore everything but code style settings and run configurations
-# that are supposed to be shared within teams.
-
-
 
 ### Node ###
 # Logs
@@ -215,8 +118,7 @@ coverage
 # nyc test coverage
 .nyc_output
 
-# Grunt intermediate storage 
-(https://gruntjs.com/creating-plugins#storing-task-files)
+# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
 # Bower dependency directory (https://bower.io/)
@@ -283,8 +185,7 @@ dist
 
 # Gatsby files
 .cache/
-# Comment in the public line in if your project uses Gatsby and not 
-Next.js
+# Comment in the public line in if your project uses Gatsby and not Next.js
 # https://nextjs.org/blog/next-9-1#public-directory-support
 # public
 
@@ -329,10 +230,8 @@ Next.js
 .svelte-kit
 
 ### PhpStorm+all ###
-# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, 
-CLion, Android Studio, WebStorm and Rider
-# Reference: 
-https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff
 
@@ -345,8 +244,7 @@ https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 # Gradle
 
 # Gradle and Maven with auto-import
-# When using Gradle or Maven with auto-import, you should exclude module 
-files,
+# When using Gradle or Maven with auto-import, you should exclude module files,
 # since they will be recreated, and may cause churn.  Uncomment if using
 # auto-import.
 # .idea/artifacts
@@ -411,6 +309,61 @@ files,
 # Ignore code-workspaces
 *.code-workspace
 
+### WebStorm+all ###
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+
+# User-specific stuff
+
+# AWS User-specific
+
+# Generated files
+
+# Sensitive or high-churn files
+
+# Gradle
+
+# Gradle and Maven with auto-import
+# When using Gradle or Maven with auto-import, you should exclude module files,
+# since they will be recreated, and may cause churn.  Uncomment if using
+# auto-import.
+# .idea/artifacts
+# .idea/compiler.xml
+# .idea/jarRepositories.xml
+# .idea/modules.xml
+# .idea/*.iml
+# .idea/modules
+# *.iml
+# *.ipr
+
+# CMake
+
+# Mongo Explorer plugin
+
+# File-based project format
+
+# IntelliJ
+
+# mpeltonen/sbt-idea plugin
+
+# JIRA plugin
+
+# Cursive Clojure plugin
+
+# SonarLint plugin
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+
+# Editor-based Rest Client
+
+# Android studio 3.1+ serialized cache file
+
+### WebStorm+all Patch ###
+# Ignore everything but code style settings and run configurations
+# that are supposed to be shared within teams.
+
+
+
 ### yarn ###
 # https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
 
@@ -428,8 +381,7 @@ files,
 # and uncomment the following lines
 # .pnp.*
 
-# End of 
-https://www.toptal.com/developers/gitignore/api/node,intellij+all,visualstudiocode,c++,clion+all,phpstorm+all,yarn
+# End of https://www.toptal.com/developers/gitignore/api/yarn,node,intellij+all,phpstorm+all,visualstudiocode,webstorm+all
 
+.idea
 public
-build
